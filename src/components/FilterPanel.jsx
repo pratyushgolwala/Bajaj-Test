@@ -5,7 +5,7 @@ const FilterPanel = ({ doctors, onFilter, activeFilters }) => {
   const [consultationType, setConsultationType] = useState(activeFilters?.consultationType || '');
   const [selectedSpecialties, setSelectedSpecialties] = useState(activeFilters?.selectedSpecialties || []);
   const [sortBy, setSortBy] = useState(activeFilters?.sortBy || '');
-  const [showAllSpecialties, setShowAllSpecialties] = useState(false);
+  const [showAllSpecialties, setShowAllSpecialties] = useState(true);
   
   // Hard-coded list of specialties based on test requirements
   const specialtiesList = [
@@ -114,13 +114,6 @@ const FilterPanel = ({ doctors, onFilter, activeFilters }) => {
             </label>
           ))}
         </div>
-        <button 
-          className="show-more-button"
-          onClick={() => setShowAllSpecialties(!showAllSpecialties)}
-          style={{ marginTop: '8px', display: specialtiesList.length > 4 ? 'block' : 'none' }}
-        >
-          {showAllSpecialties ? 'Show Less' : 'Show More'}
-        </button>
         {selectedSpecialties.length > 0 && (
           <button 
             className="clear-filter" 
